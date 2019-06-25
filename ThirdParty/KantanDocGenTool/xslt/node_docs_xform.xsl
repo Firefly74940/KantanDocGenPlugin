@@ -66,7 +66,9 @@ version="2.0">
 
 	<xsl:template match="description">
 		<p>
-			<xsl:apply-templates/>
+			<pre>
+				<xsl:apply-templates/>
+			</pre>
 		</p>
 	</xsl:template>
 
@@ -137,4 +139,6 @@ version="2.0">
 	<!-- Unwanted elements (can use "a | b | c") -->
 	<xsl:template match="fulltitle | docs_name | class_id | class_name"/>
 
+	
+	
 </xsl:stylesheet>

@@ -13,8 +13,9 @@ version="2.0">
 			<head>
 				<title><xsl:value-of select="/root/display_name" /></title>
 				<link rel="stylesheet" type="text/css" href="./css/bpdoc.css" />
+				<script src="./js/script.js" >.</script>
 			</head>
-			<body>
+			<body onload="Init()">
 				<div id="content_container">
 					<xsl:apply-templates />
 				</div>
@@ -31,15 +32,20 @@ version="2.0">
 
 	<xsl:template match="classes">
 		<h2 class="title_style">Classes</h2>
-		<table>
-			<tbody>
-				<xsl:apply-templates select="class">
-					<xsl:sort select="display_name"/>
-				</xsl:apply-templates>
-			</tbody>
-		</table>
+		<xsl:for-each select="*">
+			<button class="title_style collapsible active"> <xsl:value-of select="name" /> </button>
+			<table class="canCollapse">
+				<tbody>
+					<xsl:apply-templates select="class">
+						<xsl:sort select="display_name"/>
+					</xsl:apply-templates>
+				</tbody>
+			</table>
+		 </xsl:for-each>
+
 	</xsl:template>
 
+	
 	<xsl:template match="class">
 		<tr>
 			<td>

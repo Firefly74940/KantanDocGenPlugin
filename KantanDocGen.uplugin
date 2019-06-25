@@ -1,23 +1,26 @@
 {
-	"FileVersion" : 3,
-	
+	"FileVersion" : 4,
+	"Version" : 3,
+	"VersionName" : "Kantan Doc Gen",
 	"FriendlyName" : "Kantan Doc Gen",
 	"Description" : "Plugin providing automatic documentation generation for both blueprint functions and C++ functions exposed to blueprint.",
-	"Version" : 1,
-	"VersionName" : "1.0",
+	"Category" : "Kantan Dev",
 	"CreatedBy" : "Kantan Dev",
 	"CreatedByURL" : "",
+	"DocsURL" : "",
 	"MarketplaceURL" : "",
 	"SupportURL" : "mailto:kantandev@gmail.com",
-	"Category" : "Kantan Dev",
+	"EngineVersion" : "4.22.0",
 	"CanContainContent" : false,
-	"EnabledByDefault" : false,
-	
+	"IsBetaVersion" : true,
+	"Installed" : true,
+	"RequiresBuildPlatform" : false,
 	"Modules" :
 	[
-	{
-		"Name": "KantanDocGen",
-		"Type": "Editor"
-	}
+		{
+			"Name" : "KantanDocGen",
+			"Type" : "Editor",
+			"LoadingPhase" : "Default"
+		}
 	]
 }

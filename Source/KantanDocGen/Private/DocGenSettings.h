@@ -40,6 +40,9 @@ public:
 	/** Names of specific classes/blueprints to exclude. */
 	UPROPERTY()//EditAnywhere, Category = "Class Search")
 	TArray< FName > ExcludedClasses;
+	/** if true, all non "dataonly" blueprints will show up in doc*/
+	UPROPERTY(EditAnywhere, Category = "Properties Gen")
+		bool bGenerateComponentsPropertiesForBlueprints;
 
 	UPROPERTY(EditAnywhere, Category = "Output")
 	FDirectoryPath OutputDirectory;
@@ -55,6 +58,7 @@ public:
 	{
 		BlueprintContextClass = AActor::StaticClass();
 		bCleanOutputDirectory = false;
+		bGenerateComponentsPropertiesForBlueprints = false;
 	}
 
 	bool HasAnySources() const

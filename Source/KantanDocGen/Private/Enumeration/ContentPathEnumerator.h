@@ -10,6 +10,8 @@
 #include "AssetData.h"
 
 
+struct FDirectoryPath;
+
 class FContentPathEnumerator: public ISourceObjectEnumerator
 {
 public:

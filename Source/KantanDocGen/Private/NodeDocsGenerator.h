@@ -46,7 +46,9 @@ public:
 	/** Callable only from game thread */
 	bool GT_Init(FString const& InDocsTitle, FString const& InOutputDir, UClass* BlueprintContextClass = AActor::StaticClass());
 	UK2Node* GT_InitializeForSpawner(UBlueprintNodeSpawner* Spawner, UObject* SourceObject, FNodeProcessingState& OutState);
+	bool AddClassIfNeeded(UClass* classToAdd);
 	bool GT_Finalize(FString OutputPath);
+	bool GT_GenerateProperties(bool GenerateComponentsPropertiesForBlueprints);
 	/**/
 
 	/** Callable from background thread */
@@ -61,6 +63,7 @@ protected:
 	bool UpdateIndexDocWithClass(FXmlFile* DocFile, UClass* Class);
 	bool UpdateClassDocWithNode(FXmlFile* DocFile, UEdGraphNode* Node);
 	bool SaveIndexXml(FString const& OutDir);
+	void GenProperties(const TWeakObjectPtr<UClass> classObject, TSharedPtr<FXmlFile> doc, bool GenerateComponentsPropertiesForBlueprints);
 	bool SaveClassDocXml(FString const& OutDir);
 
 	static void AdjustNodeForSnapshot(UEdGraphNode* Node);
@@ -76,7 +79,7 @@ protected:
 
 	FString DocsTitle;
 	TSharedPtr< FXmlFile > IndexXml;
-	TMap< TWeakObjectPtr< UClass >, TSharedPtr< FXmlFile > > ClassDocsMap;
+	
 
 	FString OutputDir;
 
@@ -84,6 +87,7 @@ public:
 	//
 	double GenerateNodeImageTime = 0.0;
 	double GenerateNodeDocsTime = 0.0;
+	TMap< TWeakObjectPtr< UClass >, TSharedPtr< FXmlFile > > ClassDocsMap;
 	//
 };
 

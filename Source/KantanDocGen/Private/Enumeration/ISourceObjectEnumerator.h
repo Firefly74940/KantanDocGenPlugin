@@ -14,11 +14,10 @@ class UObject;
 class ISourceObjectEnumerator
 {
 public:
+	virtual ~ISourceObjectEnumerator() = default;
 	virtual UObject* GetNext() = 0;
 	virtual float EstimateProgress() const = 0;
 	virtual int32 EstimatedSize() const = 0;
-
-	virtual ~ISourceObjectEnumerator() {}
 };
 
 

@@ -82,6 +82,9 @@ protected:
 
 	FThreadSafeBool bRunning;	// @NOTE: Using this to sync with module calls from game thread is not 100% okay (we're not atomically testing), but whatevs.
 	FThreadSafeBool bTerminationRequest;
+
+	//warcry
+	TArray<UClass*> ClassToPropertiesProcess;
 };
 
 
